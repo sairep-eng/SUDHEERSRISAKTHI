@@ -1819,7 +1819,6 @@ export default function App() {
             overflow-wrap: normal !important;
             white-space: normal !important;
             hyphens: none !important;
-            font-size: 15px !important;
           }
 
           .location-content {
@@ -1827,6 +1826,40 @@ export default function App() {
             flex: 1 !important;
             word-break: keep-all !important;
             hyphens: none !important;
+          }
+
+          /* ── CONTACT MOBILE FIX ── */
+          #contact h4 {
+            font-size: 11px !important;
+            letter-spacing: 0.05em !important;
+            display: block !important;
+          }
+
+          #contact .flex.gap-6 p.text-lg,
+          #contact .email-link,
+          #contact .location-text {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
+            display: block !important;
+            color: inherit !important;
+          }
+
+          /* Email Specific Mobile Wrap Fix */
+          #contact .email-link {
+            font-size: 13px !important;
+            word-break: break-all !important;
+            overflow-wrap: anywhere !important;
+            white-space: normal !important;
+            max-width: 100% !important;
+          }
+
+          #contact .contact-info-col {
+            max-width: 100% !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+            flex: 1 !important;
+            min-width: 0 !important;
           }
         
         }
