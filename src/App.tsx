@@ -576,9 +576,9 @@ const ContactSection = () => {
                   <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-500 grow-0 shrink-0">
                     <item.icon size={22} />
                   </div>
-                  <div className={item.label === "Email Support" ? "contact-info-col" : ""}>
+                  <div className={cn(item.label === "Email Support" ? "contact-info-col" : "", item.label === "Office Location" && "location-content")}>
                     <h4 className="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mb-1">{item.label}</h4>
-                    <p className={cn("text-lg font-bold text-white", item.label === "Email Support" && "email-link")}>{item.value}</p>
+                    <p className={cn("text-lg font-bold text-white", item.label === "Email Support" && "email-link", item.label === "Office Location" && "location-text")}>{item.value}</p>
                   </div>
                 </div>
               ))}
@@ -1060,7 +1060,9 @@ const Footer = () => {
              <ul className="space-y-6">
                 <li className="f-contact-item">
                  <div className="text-gold-500 shrink-0"><MapPin size={18} /></div>
-                 <p className="text-white/40 text-sm">Guntur, Andhra Pradesh</p>
+                 <div className="location-content">
+                  <p className="text-white/40 text-sm location-text">Guntur, Andhra Pradesh</p>
+                 </div>
                </li>
                <li className="f-contact-item">
                  <div className="text-gold-500 shrink-0"><Phone size={18} /></div>
@@ -1675,13 +1677,158 @@ export default function App() {
           }
 
           /* Footer Tablet */
-          .footer-main {
-            padding: 52px 28px 0 28px !important;
-          }
-          .foot-grid {
+           .foot-grid {
             grid-template-columns: 1fr 1fr !important;
             gap: 36px !important;
           }
+        }
+
+        @media (max-width: 767px) {
+        
+          /* ── MAIN SECTION CONTAINER ── */
+          #about, 
+          section#about {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+            padding: 16px !important;
+            box-sizing: border-box !important;
+          }
+        
+          /* ── ALL TEXT PARAGRAPHS ── */
+          #about p,
+          #about [class*="text"],
+          #about [class*="content"] p {
+            width: 100% !important;
+            max-width: 100% !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            box-sizing: border-box !important;
+            padding: 0 !important;
+            margin: 0 0 12px 0 !important;
+          }
+        
+          /* ── TAB BUTTONS ROW ── */
+          #about [class*="tab-list"],
+          #about ul[role="tablist"],
+          #about .about-tabs {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 8px !important;
+            width: 100% !important;
+            overflow: hidden !important;
+            border: none !important;
+            padding: 0 !important;
+          }
+        
+          #about [class*="tab-item"],
+          #about [class*="tab"] button,
+          #about [class*="tab"] li {
+            flex: none !important;
+            font-size: 12px !important;
+            padding: 6px 10px !important;
+            white-space: nowrap !important;
+            width: auto !important;
+            margin: 0 !important;
+          }
+        
+          /* ── STATS ROW ── */
+          #about [class*="stats"],
+          #about [class*="stat-bar"],
+          #about .about-stats-row {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            width: 100% !important;
+            gap: 0 !important;
+            margin-top: 24px !important;
+          }
+        
+          #about [class*="stat-item"],
+          #about [class*="stats"] > div {
+            width: 50% !important;
+            text-align: center !important;
+            padding: 12px 8px !important;
+            box-sizing: border-box !important;
+            flex: none !important;
+          }
+        
+          /* ── FOUNDER PROFILE CARD FIX ── */
+          #about .founder-card {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+          }
+        
+          #about .founder-card > div:first-child {
+            height: auto !important;
+            margin-bottom: 0 !important;
+            position: relative !important;
+          }
+        
+          #about .founder-card img {
+            width: 100% !important;
+            height: 280px !important;
+            object-fit: cover !important;
+            object-position: top center !important;
+            display: block !important;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+        
+          #about .founder-card div[class*="bottom-6"] {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            padding: 16px !important;
+            margin: 0 !important;
+            text-align: left !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+
+          #about .founder-card h3 {
+            margin: 0 0 4px 0 !important;
+            text-align: left !important;
+          }
+
+          #about .founder-card p {
+            margin: 0 !important;
+            text-align: left !important;
+          }
+        
+          /* ── ANY INNER CONTAINER ── */
+          #about div,
+          #about section,
+          #about [class*="container"],
+          #about [class*="wrapper"] {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+          }
+        
+          /* ── OFFICE LOCATION FIX ── */
+          .location-text {
+            word-break: keep-all !important;
+            overflow-wrap: normal !important;
+            white-space: normal !important;
+            hyphens: none !important;
+            font-size: 15px !important;
+          }
+
+          .location-content {
+            min-width: 0 !important;
+            flex: 1 !important;
+            word-break: keep-all !important;
+            hyphens: none !important;
+          }
+        
         }
 
         /* ── MOBILE (max 768px) ── */
@@ -1802,6 +1949,89 @@ export default function App() {
             padding: 10px 10px !important;
           }
           .big-g { font-size: 54px !important; }
+        }
+
+        /* ── DESKTOP (min 1024px) ── */
+        @media (min-width: 1024px) {
+          /* Problem 1 - Tabs */
+          #about .about-tabs {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            width: 100% !important;
+            overflow: visible !important;
+            gap: 0 !important;
+          }
+          
+          #about .about-tabs button {
+            white-space: nowrap !important;
+            overflow: visible !important;
+            text-overflow: unset !important;
+            min-width: fit-content !important;
+            padding: 12px 20px !important;
+            flex-shrink: 0 !important;
+          }
+
+          /* Problem 2 - Spacing & Gaps */
+          #about .about-tabs {
+            margin-bottom: 24px !important;
+          }
+
+          /* Gap between tab panel content and stats row */
+          #about .text-col .mt-12.flex {
+            margin-top: 32px !important;
+          }
+
+          /* Gap between stats row and founder card */
+          #about .about-wrap {
+            gap: 32px !important;
+          }
+
+          /* Consistent padding */
+          #about .founder-card {
+            padding: 32px !important;
+          }
+
+          /* General block spacing and sizing */
+          #about div, 
+          #about .text-col,
+          #about .founder-col {
+            box-sizing: border-box !important;
+          }
+          
+          #about .text-col > *:not(:last-child) {
+            margin-bottom: 24px !important;
+          }
+          
+          #about .mt-12.flex {
+            margin-bottom: 0 !important; /* Ensure stats row doesn't have extra bottom margin */
+          }
+        }
+
+        /* ── CONTACT DESKTOP (min 1024px) ── */
+        @media (min-width: 1024px) {
+          #contact .flex.gap-6 {
+            align-items: center !important;
+            gap: 16px !important;
+          }
+
+          #contact .flex.gap-6 p.text-lg,
+          #contact .email-link,
+          #contact .location-text {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
+            white-space: nowrap !important;
+            display: block !important;
+            color: #ffffff !important;
+            letter-spacing: normal !important;
+          }
+
+          #contact .flex.gap-6 > div:last-child {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            height: 100% !important;
+          }
         }
       `}</style>
     </div>
